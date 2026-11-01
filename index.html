@@ -186,10 +186,10 @@ const KEY='bich-tien-local-v1';
 const blank={transactions:[],savings:[],events:[],journals:[],words:[],courses:[],goals:[],reminders:[],cycle:null,water:{},photo:null,pin:null};
 let data={...blank,...JSON.parse(localStorage.getItem(KEY)||'{}')};
 let calDate=new Date();
-let selectedCalendarDate=iso(new Date());
 const $=id=>document.getElementById(id);
 const money=n=>new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(Number(n)||0);
 const iso=d=>{let x=new Date(d);return `${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,'0')}-${String(x.getDate()).padStart(2,'0')}`};
+let selectedCalendarDate=iso(new Date());
 function save(){localStorage.setItem(KEY,JSON.stringify(data));renderAll()}
 function toast(s){let t=$('toast');t.textContent=s;t.style.display='block';setTimeout(()=>t.style.display='none',2200)}
 function go(page){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id==='page-'+page));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));$('crumb').textContent=({home:'Trang chủ',calendar:'Lịch của tôi',journal:'Nhật ký & ghi chú',finance:'Tài chính',savings:'Sổ tiết kiệm',cycle:'Chu kỳ',learning:'Từ vựng & khóa học',goals:'Mục tiêu',schedule:'Lịch trình',settings:'Cài đặt'})[page]||page;window.scrollTo(0,0)}

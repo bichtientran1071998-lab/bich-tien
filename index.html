@@ -49,7 +49,7 @@ h1{font-size:clamp(23px,3vw,31px);margin:4px 0 5px;color:#754653}h2{font-size:17
 .bottomnav{display:none}
 .toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#704653;color:white;padding:12px 18px;border-radius:30px;font-size:12px;box-shadow:var(--shadow);z-index:20;display:none}
 @media(max-width:900px){.app{grid-template-columns:205px 1fr}.cards{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr  .8fr}.grid2{grid-template-columns:1fr}}
-@media(max-width:650px){.app{display:block}.sidebar{display:none}main{padding:17px 14px 100px}.topbar{margin-bottom:15px}.topactions .btn{padding:9px 11px}.hero{grid-template-columns:1fr}.hero-main{min-height:180px}.hero-photo{min-height:190px}.photoarea{min-height:140px}.cards{gap:8px}.stat{padding:12px}.stat b{font-size:15px}.quickgrid{grid-template-columns:repeat(3,1fr)}.quick{padding:12px 5px}.bottomnav{display:flex;position:fixed;z-index:10;bottom:0;left:0;right:0;background:#fffdfd;border-top:1px solid var(--line);padding:8px 5px calc(8px + env(safe-area-inset-bottom));justify-content:space-around;box-shadow:0 -7px 22px #bd87931a}.bottomnav button{background:none;color:#98727d;font-size:10px;display:grid;gap:3px;justify-items:center}.bottomnav span{font-size:21px}.bottomnav button.active{color:#cf7188;font-weight:800}.formgrid{grid-template-columns:1fr}.message{align-items:flex-start}.chibi{width:55px;height:55px;font-size:31px}}
+@media(max-width:650px){.app{display:block}.sidebar{display:none}main{padding:17px 14px 100px}.topbar{margin-bottom:15px}.topactions .btn{padding:9px 11px}.hero{grid-template-columns:1fr}.hero-main{min-height:180px}.hero-photo{min-height:190px}.photoarea{min-height:140px}.cards{gap:8px}.stat{padding:12px}.stat b{font-size:15px}.quickgrid{grid-template-columns:repeat(3,1fr)}.quick{padding:12px 5px}.bottomnav{display:flex;position:fixed;z-index:1000;pointer-events:auto;bottom:0;left:0;right:0;background:#fffdfd;border-top:1px solid var(--line);padding:8px 5px calc(8px + env(safe-area-inset-bottom));justify-content:space-around;box-shadow:0 -7px 22px #bd87931a}.bottomnav button{background:none;color:#98727d;font-size:10px;display:grid;gap:3px;justify-items:center}.bottomnav span{font-size:21px}.bottomnav button.active{color:#cf7188;font-weight:800}.formgrid{grid-template-columns:1fr}.message{align-items:flex-start}.chibi{width:55px;height:55px;font-size:31px}}
 </style>
 </head>
 <body>
@@ -57,18 +57,18 @@ h1{font-size:clamp(23px,3vw,31px);margin:4px 0 5px;color:#754653}h2{font-size:17
 <aside class="sidebar">
   <div class="brand"><div class="brandmark">🎀</div><div><strong>BÍCH TIỀN</strong><small>MY LIFE, MY WAY</small></div></div>
   <div class="navlabel">KHÔNG GIAN CỦA TÔI</div>
-  <button class="navbtn active" data-page="home"><span class="ico">🏠</span>Trang chủ</button>
-  <button class="navbtn" data-page="calendar"><span class="ico">📅</span>Lịch của tôi</button>
-  <button class="navbtn" data-page="journal"><span class="ico">📔</span>Nhật ký & ghi chú</button>
+  <button type="button" class="navbtn active" data-page="home"><span class="ico">🏠</span>Trang chủ</button>
+  <button type="button" class="navbtn" data-page="calendar"><span class="ico">📅</span>Lịch của tôi</button>
+  <button type="button" class="navbtn" data-page="journal"><span class="ico">📔</span>Nhật ký & ghi chú</button>
   <div class="navlabel">QUẢN LÝ CUỘC SỐNG</div>
-  <button class="navbtn" data-page="finance"><span class="ico">💗</span>Tài chính</button>
-  <button class="navbtn" data-page="savings"><span class="ico">🐷</span>Sổ tiết kiệm</button>
-  <button class="navbtn" data-page="cycle"><span class="ico">🌷</span>Chu kỳ</button>
-  <button class="navbtn" data-page="learning"><span class="ico">📚</span>Từ vựng & khóa học</button>
-  <button class="navbtn" data-page="goals"><span class="ico">🎯</span>Mục tiêu</button>
-  <button class="navbtn" data-page="schedule"><span class="ico">⏰</span>Lịch trình & uống nước</button>
+  <button type="button" class="navbtn" data-page="finance"><span class="ico">💗</span>Tài chính</button>
+  <button type="button" class="navbtn" data-page="savings"><span class="ico">🐷</span>Sổ tiết kiệm</button>
+  <button type="button" class="navbtn" data-page="cycle"><span class="ico">🌷</span>Chu kỳ</button>
+  <button type="button" class="navbtn" data-page="learning"><span class="ico">📚</span>Từ vựng & khóa học</button>
+  <button type="button" class="navbtn" data-page="goals"><span class="ico">🎯</span>Mục tiêu</button>
+  <button type="button" class="navbtn" data-page="schedule"><span class="ico">⏰</span>Lịch trình & uống nước</button>
   <div class="navlabel">CÁ NHÂN</div>
-  <button class="navbtn" data-page="settings"><span class="ico">⚙️</span>Cài đặt & dữ liệu</button>
+  <button type="button" class="navbtn" data-page="settings"><span class="ico">⚙️</span>Cài đặt & dữ liệu</button>
   <div class="sidefoot">🐱 <b>Tiên Tiên nhắn:</b><br>“Mỗi ngày tiến một chút cũng là giỏi lắm rồi đó!” 💗</div>
 </aside>
 <main>
@@ -89,7 +89,7 @@ h1{font-size:clamp(23px,3vw,31px);margin:4px 0 5px;color:#754653}h2{font-size:17
     <div class="grid2">
       <div class="panel"><div class="sectionhead"><h2>🌷 Việc nhỏ hôm nay</h2><span class="pill">Từng chút một</span></div><div id="homeTasks"><div class="taskrow"><input type="checkbox"> Ôn tập từ vựng</div><div class="taskrow"><input type="checkbox"> Uống đủ nước</div><div class="taskrow"><input type="checkbox"> Hoàn thành một mục tiêu</div></div></div>
       <div class="panel"><h2>♡ Đi đến góc nhỏ</h2><div class="quickgrid">
-        <button class="quick" data-go="finance"><span>💰</span><b>Tài chính</b></button><button class="quick" data-go="cycle"><span>🌸</span><b>Chu kỳ</b></button><button class="quick" data-go="learning"><span>📖</span><b>Học tập</b></button><button class="quick" data-go="journal"><span>📔</span><b>Nhật ký</b></button><button class="quick" data-go="goals"><span>⭐</span><b>Mục tiêu</b></button><button class="quick" data-go="schedule"><span>💧</span><b>Uống nước</b></button>
+        <button type="button" class="quick" data-go="finance"><span>💰</span><b>Tài chính</b></button><button type="button" class="quick" data-go="cycle"><span>🌸</span><b>Chu kỳ</b></button><button type="button" class="quick" data-go="learning"><span>📖</span><b>Học tập</b></button><button type="button" class="quick" data-go="journal"><span>📔</span><b>Nhật ký</b></button><button type="button" class="quick" data-go="goals"><span>⭐</span><b>Mục tiêu</b></button><button type="button" class="quick" data-go="schedule"><span>💧</span><b>Uống nước</b></button>
       </div></div>
     </div>
   </section>
@@ -175,10 +175,10 @@ h1{font-size:clamp(23px,3vw,31px);margin:4px 0 5px;color:#754653}h2{font-size:17
 </div>
 <nav class="bottomnav">
  <button class="active" data-page="home"><span>🏠</span>Trang chủ</button>
- <button data-page="calendar"><span>📅</span>Lịch</button>
- <button data-page="finance"><span>💰</span>Tài chính</button>
- <button data-page="learning"><span>📚</span>Học tập</button>
- <button data-page="settings"><span>👩🏻</span>Cá nhân</button>
+ <button type="button" data-page="calendar"><span>📅</span>Lịch</button>
+ <button type="button" data-page="finance"><span>💰</span>Tài chính</button>
+ <button type="button" data-page="learning"><span>📚</span>Học tập</button>
+ <button type="button" data-page="settings"><span>👩🏻</span>Cá nhân</button>
 </nav>
 <div class="toast" id="toast"></div>
 <script>
@@ -187,15 +187,17 @@ const blank={transactions:[],savings:[],events:[],journals:[],words:[],courses:[
 let data;
 try{data={...blank,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){data={...blank}}
 let calDate=new Date();
-let selectedCalendarDate=iso(new Date());
 const $=id=>document.getElementById(id);
 const money=n=>new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(Number(n)||0);
 const iso=d=>{let x=new Date(d);return `${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,'0')}-${String(x.getDate()).padStart(2,'0')}`};
+let selectedCalendarDate=iso(new Date());
 function save(){try{localStorage.setItem(KEY,JSON.stringify(data));renderAll();return true}catch(e){renderAll();toast('Bộ nhớ Safari gần đầy. Hãy thử ảnh nhỏ hơn hoặc xuất bản sao lưu nhé.');return false}}
 function toast(s){let t=$('toast');t.textContent=s;t.style.display='block';setTimeout(()=>t.style.display='none',2200)}
 function go(page){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id==='page-'+page));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));$('crumb').textContent=({home:'Trang chủ',calendar:'Lịch của tôi',journal:'Nhật ký & ghi chú',finance:'Tài chính',savings:'Sổ tiết kiệm',cycle:'Chu kỳ',learning:'Từ vựng & khóa học',goals:'Mục tiêu',schedule:'Lịch trình',settings:'Cài đặt'})[page]||page;window.scrollTo(0,0)}
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
 document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+// Fallback navigation handler: delegated capture keeps navigation responsive on mobile Safari.
+document.addEventListener('click',e=>{const b=e.target.closest('[data-page],[data-go]');if(!b)return;e.preventDefault();const page=b.dataset.page||b.dataset.go;if(page)go(page)},true);
 $('todayText').textContent=new Intl.DateTimeFormat('vi-VN',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date());
 const messages=['“Chào bé Tiền! Hôm nay mình cùng nhau xinh đẹp, chăm chỉ và hạnh phúc nhé!”','“Uống nước đi nè, xinh đẹp cũng cần cấp nước đó nha!”','“Mỗi ngày học một chút, Tiền sẽ tiến bộ thật nhiều!”','“Không cần hoàn hảo đâu, hôm nay cố gắng vậy là giỏi rồi.”','“Nhớ nghỉ ngơi nữa nhé, bà chủ không phải siêu nhân đâu!”'];
 $('dailyMessage').textContent=messages[new Date().getDate()%messages.length];

@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#fff2f4">
+<title>BÍCH TIỀN — My Life, My Way</title>
+<style>
+:root{--pink:#ee9eae;--pink2:#f8cbd3;--rose:#d97990;--pale:#fff2f4;--cream:#fffafb;--ink:#704653;--muted:#a77e88;--line:#f3dce1;--white:#fff;--shadow:0 12px 30px rgba(185,112,132,.10)}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#fff7f8,#fff0f3);font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,sans-serif;color:var(--ink)}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}
+.app{min-height:100vh;display:grid;grid-template-columns:245px 1fr;max-width:1500px;margin:auto}
+.sidebar{padding:25px 17px;background:rgba(255,255,255,.76);border-right:1px solid var(--line);position:sticky;top:0;height:100vh;overflow:auto}
+.brand{display:flex;gap:11px;align-items:center;padding:4px 8px 24px}.brandmark{width:48px;height:48px;border-radius:17px;background:linear-gradient(145deg,#ffdce3,#f3a9b9);display:grid;place-items:center;font-size:26px;box-shadow:var(--shadow)}
+.brand strong{display:block;font-size:18px;letter-spacing:1px}.brand small{font-size:9px;letter-spacing:2.5px;color:var(--muted)}
+.navlabel{font-size:10px;letter-spacing:1.8px;color:#bd929c;padding:15px 12px 8px}
+.navbtn{width:100%;padding:11px 12px;border-radius:14px;background:transparent;color:var(--ink);display:flex;align-items:center;gap:12px;text-align:left;margin:3px 0;font-size:13px}
+.navbtn .ico{width:26px;text-align:center;font-size:19px}.navbtn.active,.navbtn:hover{background:#ffe8ed;color:#bd647b;font-weight:700}
+.sidefoot{margin:20px 5px 0;padding:14px;border-radius:18px;background:#fff0f3;font-size:11px;line-height:1.6}
+main{padding:25px clamp(15px,3vw,42px) 95px;min-width:0}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:22px}
+.crumb{font-size:12px;color:var(--muted)}.topactions{display:flex;gap:8px}
+.btn{background:var(--rose);color:white;padding:10px 15px;border-radius:13px;font-size:12px;font-weight:700;box-shadow:0 5px 13px #e8b4c1}.btn.soft{background:#ffe6eb;color:#a95d72;box-shadow:none}.btn.ghost{background:white;color:var(--ink);border:1px solid var(--line);box-shadow:none}
+.page{display:none}.page.active{display:block}
+h1{font-size:clamp(23px,3vw,31px);margin:4px 0 5px;color:#754653}h2{font-size:17px;margin:0 0 14px}h3{font-size:14px;margin:0 0 8px}.sub{font-size:12px;color:var(--muted);line-height:1.6}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-bottom:18px}
+.hero-main{background:linear-gradient(125deg,#f8cbd3,#ffe8ec 65%,#fff7f8);border-radius:27px;padding:24px;position:relative;overflow:hidden;min-height:210px;box-shadow:var(--shadow)}
+.hero-main:after{content:"♡";position:absolute;font-size:150px;right:5px;bottom:-65px;color:#fff8;transform:rotate(-15deg)}
+.eyebrow{font-size:10px;letter-spacing:2px;color:#a96a7a;font-weight:800}.hero-main h1{margin-top:10px}.datepill{display:inline-block;background:#ffffffa8;border-radius:30px;padding:7px 12px;font-size:11px;margin-top:10px}
+.hero-photo{background:#fff;border:1px solid var(--line);border-radius:27px;padding:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-height:210px}
+.photoarea{flex:1;min-height:145px;border-radius:19px;background:linear-gradient(140deg,#ffe8ed,#fff6f7);display:grid;place-items:center;overflow:hidden;position:relative}
+.photoarea img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.photo-placeholder{text-align:center;font-size:12px;color:var(--muted);padding:10px}.photo-placeholder b{display:block;font-size:43px;margin-bottom:5px}
+.photo-tools{display:flex;justify-content:space-between;align-items:center;padding:9px 2px 0;font-size:11px;color:var(--muted)}
+.message{display:flex;align-items:center;gap:13px;padding:14px 17px;background:white;border:1px solid var(--line);border-radius:20px;margin-bottom:19px;box-shadow:var(--shadow)}
+.chibi{width:64px;height:64px;border-radius:20px;background:#ffe6ec;display:grid;place-items:center;font-size:37px;flex-shrink:0}
+.message strong{font-size:13px}.message p{font-size:12px;line-height:1.55;margin:5px 0 0;color:#956b76}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:13px 0 22px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:19px;padding:15px;box-shadow:var(--shadow)}.stat .sico{font-size:22px}.stat small{display:block;color:var(--muted);font-size:10px;margin-top:8px}.stat b{display:block;font-size:17px;margin-top:4px}
+.grid2{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}.panel{background:white;border:1px solid var(--line);border-radius:21px;padding:18px;box-shadow:var(--shadow);margin-bottom:16px}
+.quickgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.quick{background:#fff7f8;border:1px solid #f8e3e7;border-radius:17px;padding:14px 10px;text-align:center;color:var(--ink)}.quick span{display:block;font-size:25px;margin-bottom:7px}.quick b{font-size:11px}
+.taskrow{display:flex;align-items:center;gap:9px;padding:10px 0;border-bottom:1px solid #f8edf0;font-size:12px}.taskrow:last-child{border:0}.taskrow input{accent-color:var(--rose)}
+.sectionhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:4px 0 15px}
+.formgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.field{display:flex;flex-direction:column;gap:6px;margin-bottom:10px}.field label{font-size:11px;color:#9a707b;font-weight:700}.field input,.field select,.field textarea{width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:12px;background:#fffafb;color:var(--ink);outline:none;font-size:13px}.field textarea{min-height:90px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--pink)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:7px}
+.tablewrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:12px}th,td{text-align:left;padding:11px 9px;border-bottom:1px solid #f6e8eb;white-space:nowrap}th{color:#aa7b86;font-size:10px}
+.empty{padding:22px;text-align:center;color:#b18c95;font-size:12px;background:#fff8f9;border-radius:15px}
+.pill{display:inline-block;padding:5px 9px;border-radius:20px;background:#ffedf1;color:#b66a7e;font-size:10px}
+.bigamount{font-size:25px;font-weight:800;color:#cb7187}.muted{color:var(--muted)}.calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.day{background:#fff7f8;border-radius:10px;min-height:48px;padding:7px;text-align:center;font-size:11px}.day.head{background:transparent;color:#b18590;font-weight:700;min-height:auto}.day.today{background:#f6b8c5;color:#713f4d;font-weight:800}.day.mark{outline:2px solid #eaa0b0}
+.bottomnav{display:none}
+.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);background:#704653;color:white;padding:12px 18px;border-radius:30px;font-size:12px;box-shadow:var(--shadow);z-index:20;display:none}
+@media(max-width:900px){.app{grid-template-columns:205px 1fr}.cards{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr  .8fr}.grid2{grid-template-columns:1fr}}
+@media(max-width:650px){.app{display:block}.sidebar{display:none}main{padding:17px 14px 100px}.topbar{margin-bottom:15px}.topactions .btn{padding:9px 11px}.hero{grid-template-columns:1fr}.hero-main{min-height:180px}.hero-photo{min-height:190px}.photoarea{min-height:140px}.cards{gap:8px}.stat{padding:12px}.stat b{font-size:15px}.quickgrid{grid-template-columns:repeat(3,1fr)}.quick{padding:12px 5px}.bottomnav{display:flex;position:fixed;z-index:10;bottom:0;left:0;right:0;background:#fffdfd;border-top:1px solid var(--line);padding:8px 5px calc(8px + env(safe-area-inset-bottom));justify-content:space-around;box-shadow:0 -7px 22px #bd87931a}.bottomnav button{background:none;color:#98727d;font-size:10px;display:grid;gap:3px;justify-items:center}.bottomnav span{font-size:21px}.bottomnav button.active{color:#cf7188;font-weight:800}.formgrid{grid-template-columns:1fr}.message{align-items:flex-start}.chibi{width:55px;height:55px;font-size:31px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="brandmark">🎀</div><div><strong>BÍCH TIỀN</strong><small>MY LIFE, MY WAY</small></div></div>
+  <div class="navlabel">KHÔNG GIAN CỦA TÔI</div>
+  <button class="navbtn active" data-page="home"><span class="ico">🏠</span>Trang chủ</button>
+  <button class="navbtn" data-page="calendar"><span class="ico">📅</span>Lịch của tôi</button>
+  <button class="navbtn" data-page="journal"><span class="ico">📔</span>Nhật ký & ghi chú</button>
+  <div class="navlabel">QUẢN LÝ CUỘC SỐNG</div>
+  <button class="navbtn" data-page="finance"><span class="ico">💗</span>Tài chính</button>
+  <button class="navbtn" data-page="savings"><span class="ico">🐷</span>Sổ tiết kiệm</button>
+  <button class="navbtn" data-page="cycle"><span class="ico">🌷</span>Chu kỳ</button>
+  <button class="navbtn" data-page="learning"><span class="ico">📚</span>Từ vựng & khóa học</button>
+  <button class="navbtn" data-page="goals"><span class="ico">🎯</span>Mục tiêu</button>
+  <button class="navbtn" data-page="schedule"><span class="ico">⏰</span>Lịch trình & uống nước</button>
+  <div class="navlabel">CÁ NHÂN</div>
+  <button class="navbtn" data-page="settings"><span class="ico">⚙️</span>Cài đặt & dữ liệu</button>
+  <div class="sidefoot">🐱 <b>Tiên Tiên nhắn:</b><br>“Mỗi ngày tiến một chút cũng là giỏi lắm rồi đó!” 💗</div>
+</aside>
+<main>
+  <div class="topbar"><div class="crumb">BÍCH TIỀN <span style="color:#e7a5b3">/</span> <span id="crumb">Trang chủ</span></div><div class="topactions"><button class="btn soft" id="waterTop">💧 Uống nước</button><button class="btn ghost" id="exportTop">⇩ Sao lưu</button></div></div>
+
+  <section class="page active" id="page-home">
+    <div class="hero">
+      <div class="hero-main"><div class="eyebrow">MY LITTLE WORLD ♡</div><h1>Xin chào, Bích Tiền!</h1><div class="sub">Hôm nay mình lại cùng nhau chăm sóc bản thân và thực hiện những điều nhỏ xinh nhé.</div><div class="datepill" id="todayText"></div></div>
+      <div class="hero-photo"><div class="photoarea" id="photoArea"><div class="photo-placeholder"><b>👩🏻‍👧🏻</b>Ảnh hai mẹ con của Tiền<br><small>Thêm ảnh ở đây nhé ♡</small></div></div><div class="photo-tools"><span>Khoảnh khắc yêu thương</span><label style="color:#c46f83;cursor:pointer">＋ Thêm ảnh<input id="photoInput" type="file" accept="image/*" hidden></label></div></div>
+    </div>
+    <div class="message"><div class="chibi">🎀🐱</div><div><strong>Tiên Tiên nhắn nhủ 💗</strong><p id="dailyMessage">“Chào bé Tiền! Hôm nay mình cùng nhau xinh đẹp, chăm chỉ và hạnh phúc nhé!”</p></div></div>
+    <div class="cards">
+      <div class="stat"><span class="sico">💸</span><small>Chi tiêu tháng này</small><b id="homeExpense">0 ₫</b></div>
+      <div class="stat"><span class="sico">🐷</span><small>Tiền gửi tiết kiệm</small><b id="homeSavings">0 ₫</b></div>
+      <div class="stat"><span class="sico">🎯</span><small>Mục tiêu hoàn thành</small><b id="homeGoals">0</b></div>
+      <div class="stat"><span class="sico">📚</span><small>Từ vựng đã lưu</small><b id="homeWords">0</b></div>
+    </div>
+    <div class="grid2">
+      <div class="panel"><div class="sectionhead"><h2>🌷 Việc nhỏ hôm nay</h2><span class="pill">Từng chút một</span></div><div id="homeTasks"><div class="taskrow"><input type="checkbox"> Ôn tập từ vựng</div><div class="taskrow"><input type="checkbox"> Uống đủ nước</div><div class="taskrow"><input type="checkbox"> Hoàn thành một mục tiêu</div></div></div>
+      <div class="panel"><h2>♡ Đi đến góc nhỏ</h2><div class="quickgrid">
+        <button class="quick" data-go="finance"><span>💰</span><b>Tài chính</b></button><button class="quick" data-go="cycle"><span>🌸</span><b>Chu kỳ</b></button><button class="quick" data-go="learning"><span>📖</span><b>Học tập</b></button><button class="quick" data-go="journal"><span>📔</span><b>Nhật ký</b></button><button class="quick" data-go="goals"><span>⭐</span><b>Mục tiêu</b></button><button class="quick" data-go="schedule"><span>💧</span><b>Uống nước</b></button>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="page" id="page-calendar">
+    <div class="sectionhead"><div><h1>Lịch của tôi 📅</h1><div class="sub">Lịch tháng và những điều Tiền muốn ghi nhớ.</div></div><button class="btn" id="addEventBtn">＋ Thêm sự kiện</button></div>
+    <div class="panel"><div class="sectionhead"><button class="btn soft" id="prevMonth">‹</button><h2 id="monthLabel"></h2><button class="btn soft" id="nextMonth">›</button></div><div class="calendar" id="calendarGrid"></div></div>
+    <div class="panel"><h2>📝 Sự kiện & ghi chú lịch</h2><div id="eventList" class="empty">Chưa có sự kiện. Thêm một điều đáng nhớ nhé!</div></div>
+  </section>
+
+  <section class="page" id="page-journal">
+    <div class="sectionhead"><div><h1>Nhật ký & ghi chú 📔</h1><div class="sub">Cất giữ những suy nghĩ, kỷ niệm và điều nhỏ bé trong ngày.</div></div></div>
+    <div class="panel"><h2>Viết một chút cho hôm nay</h2><div class="field"><label>Tiêu đề</label><input id="journalTitle" placeholder="Hôm nay của mình..."></div><div class="field"><label>Nội dung</label><textarea id="journalBody" placeholder="Hôm nay mình cảm thấy..."></textarea></div><div class="field"><label>Cảm xúc</label><select id="journalMood"><option>🥰 Vui vẻ</option><option>😌 Bình yên</option><option>😴 Mệt mỏi</option><option>🥺 Buồn một chút</option><option>💪 Quyết tâm</option></select></div><button class="btn" id="saveJournal">Lưu nhật ký</button></div>
+    <div class="panel"><h2>Những trang đã lưu</h2><div id="journalList" class="empty">Nhật ký của Tiền sẽ nằm ở đây.</div></div>
+  </section>
+
+  <section class="page" id="page-finance">
+    <div class="sectionhead"><div><h1>Tài chính của Tiền 💰</h1><div class="sub">Theo dõi thu nhập, chi tiêu và dòng tiền cá nhân.</div></div></div>
+    <div class="cards"><div class="stat"><small>Tổng thu</small><b id="incomeTotal">0 ₫</b></div><div class="stat"><small>Tổng chi</small><b id="expenseTotal">0 ₫</b></div><div class="stat"><small>Còn lại</small><b id="balanceTotal">0 ₫</b></div><div class="stat"><small>Số giao dịch</small><b id="transactionCount">0</b></div></div>
+    <div class="panel"><h2>＋ Thêm khoản thu / chi</h2><div class="formgrid"><div class="field"><label>Loại giao dịch</label><select id="txType"><option value="expense">Chi tiêu</option><option value="income">Thu nhập</option></select></div><div class="field"><label>Danh mục</label><select id="txCategory"><option>Ăn uống</option><option>Gia đình</option><option>Con cái</option><option>Di chuyển</option><option>Mua sắm</option><option>Hóa đơn</option><option>Lương</option><option>Thưởng</option><option>Khác</option></select></div><div class="field"><label>Số tiền (₫)</label><input id="txAmount" type="number" min="0" placeholder="Ví dụ: 150000"></div><div class="field"><label>Ngày</label><input id="txDate" type="date"></div></div><div class="field"><label>Ghi chú</label><input id="txNote" placeholder="Ghi chú nếu cần"></div><button class="btn" id="saveTx">Lưu giao dịch</button></div>
+    <div class="panel"><h2>Lịch sử giao dịch</h2><div id="txList" class="empty">Chưa có giao dịch nào.</div></div>
+  </section>
+
+  <section class="page" id="page-savings">
+    <div class="sectionhead"><div><h1>Sổ tiết kiệm 🐷</h1><div class="sub">Theo dõi ngày gửi, lãi suất, kỳ hạn và ngày đáo hạn.</div></div></div>
+    <div class="panel"><h2>＋ Thêm sổ tiết kiệm</h2><div class="formgrid"><div class="field"><label>Tên sổ / Ngân hàng</label><input id="svName" placeholder="Ví dụ: Tiết kiệm ngân hàng"></div><div class="field"><label>Số tiền gốc (₫)</label><input id="svPrincipal" type="number" placeholder="50000000"></div><div class="field"><label>Lãi suất (%/năm)</label><input id="svRate" type="number" step="0.01" placeholder="6.5"></div><div class="field"><label>Kỳ hạn (tháng)</label><input id="svMonths" type="number" min="1" placeholder="12"></div><div class="field"><label>Ngày gửi</label><input id="svDate" type="date"></div><div class="field"><label>Hình thức nhận lãi</label><select id="svMethod"><option value="end">Nhận lãi cuối kỳ</option><option value="monthly">Nhận lãi hàng tháng (ước tính)</option></select></div></div><button class="btn" id="saveSaving">Lưu sổ tiết kiệm</button></div>
+    <div class="panel"><h2>Các sổ đang theo dõi</h2><div id="savingList" class="empty">Chưa có sổ tiết kiệm. Thêm sổ đầu tiên nhé!</div></div>
+  </section>
+
+  <section class="page" id="page-cycle">
+    <div class="sectionhead"><div><h1>Chu kỳ của Tiền 🌷</h1><div class="sub">Ghi nhận chu kỳ và xem dự đoán tham khảo về cửa sổ thụ thai.</div></div></div>
+    <div class="panel"><h2>Ghi nhận kỳ kinh</h2><div class="formgrid"><div class="field"><label>Ngày bắt đầu kỳ kinh gần nhất</label><input id="periodStart" type="date"></div><div class="field"><label>Độ dài chu kỳ thường gặp (ngày)</label><input id="cycleLength" type="number" min="20" max="45" value="29"></div><div class="field"><label>Số ngày hành kinh</label><input id="periodLength" type="number" min="1" max="10" value="5"></div></div><button class="btn" id="saveCycle">Lưu thông tin chu kỳ</button></div>
+    <div class="panel" id="cycleResult"><div class="empty">Nhập ngày bắt đầu kỳ kinh để xem dự đoán.</div></div>
+    <div class="panel"><h3>💗 Hiểu đúng về dự đoán</h3><p class="sub">Ngày rụng trứng thường được ước tính khoảng 14 ngày trước kỳ kinh tiếp theo; cửa sổ thụ thai thường gồm 5 ngày trước rụng trứng và ngày rụng trứng. Đây chỉ là ước tính theo lịch, không xác định chính xác việc rụng trứng và không phải biện pháp tránh thai. Chu kỳ không đều làm dự đoán kém tin cậy hơn. Que thử LH và theo dõi dịch nhầy có thể bổ sung thông tin.</p></div>
+  </section>
+
+  <section class="page" id="page-learning">
+    <div class="sectionhead"><div><h1>Góc học tập 📚</h1><div class="sub">Từ vựng, lịch ôn tập và khóa học của Tiền.</div></div></div>
+    <div class="panel"><h2>＋ Lưu từ vựng</h2><div class="formgrid"><div class="field"><label>Từ / cụm từ</label><input id="wordText" placeholder="Ví dụ: kiitos"></div><div class="field"><label>Nghĩa tiếng Việt</label><input id="wordMeaning" placeholder="Cảm ơn"></div><div class="field"><label>Ngôn ngữ</label><input id="wordLang" value="Tiếng Phần Lan"></div><div class="field"><label>Ví dụ / ghi chú</label><input id="wordExample" placeholder="Kiitos paljon!"></div></div><button class="btn" id="saveWord">Lưu từ mới</button></div>
+    <div class="panel"><div class="sectionhead"><h2>Thẻ từ vựng của tôi</h2><span class="pill" id="wordCount">0 từ</span></div><div id="wordList" class="empty">Chưa lưu từ vựng nào.</div></div>
+    <div class="panel"><h2>＋ Thêm khóa học</h2><div class="formgrid"><div class="field"><label>Tên khóa học</label><input id="courseName" placeholder="Tên khóa học"></div><div class="field"><label>Tiến độ (%)</label><input id="courseProgress" type="number" min="0" max="100" value="0"></div></div><button class="btn" id="saveCourse">Lưu khóa học</button><div id="courseList" style="margin-top:14px" class="empty">Chưa có khóa học.</div></div>
+  </section>
+
+  <section class="page" id="page-goals">
+    <div class="sectionhead"><div><h1>Mục tiêu của Tiền 🎯</h1><div class="sub">Ước mơ lớn bắt đầu từ những việc nhỏ.</div></div></div>
+    <div class="panel"><h2>＋ Tạo mục tiêu</h2><div class="formgrid"><div class="field"><label>Tên mục tiêu</label><input id="goalName" placeholder="Ví dụ: Học tiếng Phần Lan A1"></div><div class="field"><label>Hạn hoàn thành</label><input id="goalDue" type="date"></div></div><button class="btn" id="saveGoal">Thêm mục tiêu</button></div>
+    <div class="panel"><h2>Danh sách mục tiêu</h2><div id="goalList" class="empty">Chưa có mục tiêu. Viết điều Tiền muốn làm nhé!</div></div>
+  </section>
+
+  <section class="page" id="page-schedule">
+    <div class="sectionhead"><div><h1>Lịch trình & chăm sóc bản thân ⏰</h1><div class="sub">Nhắc việc và ghi nhận lượng nước uống trong ngày.</div></div></div>
+    <div class="panel"><h2>💧 Theo dõi nước hôm nay</h2><div class="bigamount" id="waterCount">0 / 8 ly</div><p class="sub">Mỗi lần bấm, Tiên Tiên sẽ ghi nhận thêm một ly nước.</p><div class="actions"><button class="btn" id="addWater">＋ Đã uống một ly</button><button class="btn soft" id="resetWater">Đặt lại hôm nay</button></div></div>
+    <div class="panel"><h2>＋ Thêm lịch trình / lời nhắc</h2><div class="formgrid"><div class="field"><label>Nội dung</label><input id="reminderText" placeholder="Ví dụ: Ôn từ vựng"></div><div class="field"><label>Ngày</label><input id="reminderDate" type="date"></div><div class="field"><label>Giờ</label><input id="reminderTime" type="time"></div></div><button class="btn" id="saveReminder">Lưu lịch trình</button><p class="sub">Bản thử nghiệm lưu lịch nhắc trong ứng dụng; thông báo đẩy khi đóng trình duyệt cần được bổ sung riêng.</p></div>
+    <div class="panel"><h2>Lịch trình đã lưu</h2><div id="reminderList" class="empty">Chưa có lịch trình.</div></div>
+  </section>
+
+  <section class="page" id="page-settings">
+    <div class="sectionhead"><div><h1>Cài đặt & dữ liệu ⚙️</h1><div class="sub">Dữ liệu được lưu cục bộ trong trình duyệt trên thiết bị này.</div></div></div>
+    <div class="panel"><h2>🔐 Khóa riêng tư</h2><p class="sub">Bản thử nghiệm chưa có tài khoản trực tuyến. Có thể đặt mã PIN để khóa giao diện; mã PIN này chỉ là khóa tiện ích, không thay thế bảo mật cấp hệ điều hành.</p><div class="field"><label>Mã PIN (4–8 chữ số)</label><input id="pinInput" type="password" inputmode="numeric" maxlength="8" placeholder="Để trống nếu không muốn đặt"></div><button class="btn" id="savePin">Lưu mã PIN</button></div>
+    <div class="panel"><h2>📦 Sao lưu và khôi phục</h2><p class="sub">Xuất dữ liệu thành tệp JSON để tự giữ bản sao. Nếu xóa dữ liệu Safari hoặc đổi điện thoại, dữ liệu cục bộ có thể mất nếu chưa sao lưu.</p><div class="actions"><button class="btn" id="exportData">⇩ Tải bản sao lưu</button><label class="btn soft" style="cursor:pointer">⇧ Nhập bản sao lưu<input type="file" id="importData" accept="application/json" hidden></label></div></div>
+    <div class="panel"><h2>🧹 Quản lý dữ liệu</h2><p class="sub">Xóa toàn bộ dữ liệu đã lưu trên trình duyệt này. Thao tác không thể hoàn tác.</p><button class="btn ghost" id="clearData">Xóa dữ liệu trên thiết bị</button></div>
+  </section>
+</main>
+</div>
+<nav class="bottomnav">
+ <button class="active" data-page="home"><span>🏠</span>Trang chủ</button>
+ <button data-page="calendar"><span>📅</span>Lịch</button>
+ <button data-page="finance"><span>💰</span>Tài chính</button>
+ <button data-page="learning"><span>📚</span>Học tập</button>
+ <button data-page="settings"><span>👩🏻</span>Cá nhân</button>
+</nav>
+<div class="toast" id="toast"></div>
+<script>
+const KEY='bich-tien-local-v1';
+const blank={transactions:[],savings:[],events:[],journals:[],words:[],courses:[],goals:[],reminders:[],cycle:null,water:{},photo:null,pin:null};
+let data={...blank,...JSON.parse(localStorage.getItem(KEY)||'{}')};
+let calDate=new Date();
+const $=id=>document.getElementById(id);
+const money=n=>new Intl.NumberFormat('vi-VN',{style:'currency',currency:'VND',maximumFractionDigits:0}).format(Number(n)||0);
+const iso=d=>{let x=new Date(d);return `${x.getFullYear()}-${String(x.getMonth()+1).padStart(2,'0')}-${String(x.getDate()).padStart(2,'0')}`};
+function save(){localStorage.setItem(KEY,JSON.stringify(data));renderAll()}
+function toast(s){let t=$('toast');t.textContent=s;t.style.display='block';setTimeout(()=>t.style.display='none',2200)}
+function go(page){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id==='page-'+page));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));$('crumb').textContent=({home:'Trang chủ',calendar:'Lịch của tôi',journal:'Nhật ký & ghi chú',finance:'Tài chính',savings:'Sổ tiết kiệm',cycle:'Chu kỳ',learning:'Từ vựng & khóa học',goals:'Mục tiêu',schedule:'Lịch trình',settings:'Cài đặt'})[page]||page;window.scrollTo(0,0)}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
+$('todayText').textContent=new Intl.DateTimeFormat('vi-VN',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(new Date());
+const messages=['“Chào bé Tiền! Hôm nay mình cùng nhau xinh đẹp, chăm chỉ và hạnh phúc nhé!”','“Uống nước đi nè, xinh đẹp cũng cần cấp nước đó nha!”','“Mỗi ngày học một chút, Tiền sẽ tiến bộ thật nhiều!”','“Không cần hoàn hảo đâu, hôm nay cố gắng vậy là giỏi rồi.”','“Nhớ nghỉ ngơi nữa nhé, bà chủ không phải siêu nhân đâu!”'];
+$('dailyMessage').textContent=messages[new Date().getDate()%messages.length];
+$('txDate').value=iso(new Date());$('svDate').value=iso(new Date());$('periodStart').value=iso(new Date());$('reminderDate').value=iso(new Date());
+$('photoInput').addEventListener('change',e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{data.photo=r.result;save();toast('Đã cập nhật ảnh của hai mẹ con 💗')};r.readAsDataURL(f)});
+function renderPhoto(){let a=$('photoArea');a.innerHTML=data.photo?`<img alt="Ảnh gia đình" src="${data.photo}">`:`<div class="photo-placeholder"><b>👩🏻‍👧🏻</b>Ảnh hai mẹ con của Tiền<br><small>Thêm ảnh ở đây nhé ♡</small></div>`}
+function renderFinance(){let income=data.transactions.filter(x=>x.type==='income').reduce((s,x)=>s+x.amount,0),expense=data.transactions.filter(x=>x.type==='expense').reduce((s,x)=>s+x.amount,0);$('incomeTotal').textContent=money(income);$('expenseTotal').textContent=money(expense);$('balanceTotal').textContent=money(income-expense);$('transactionCount').textContent=data.transactions.length;$('homeExpense').textContent=money(data.transactions.filter(x=>x.type==='expense'&&x.date?.slice(0,7)===iso(new Date()).slice(0,7)).reduce((s,x)=>s+x.amount,0));$('txList').innerHTML=data.transactions.length?`<div class="tablewrap"><table><thead><tr><th>Ngày</th><th>Loại</th><th>Danh mục</th><th>Số tiền</th><th></th></tr></thead><tbody>${data.transactions.slice().reverse().map((x,i)=>`<tr><td>${x.date}</td><td>${x.type==='income'?'Thu':'Chi'}</td><td>${esc(x.category)} ${x.note?'· '+esc(x.note):''}</td><td style="color:${x.type==='income'?'#4a9b79':'#c66c83'}">${x.type==='income'?'+':'−'}${money(x.amount)}</td><td><button class="btn soft" onclick="removeItem('transactions',${data.transactions.length-1-i})">Xóa</button></td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">Chưa có giao dịch nào.</div>'}
+function renderSavings(){$('homeSavings').textContent=money(data.savings.reduce((s,x)=>s+x.principal,0));$('savingList').innerHTML=data.savings.length?data.savings.map((x,i)=>{let end=new Date(x.date+'T12:00:00');end.setMonth(end.getMonth()+x.months);let interest=x.principal*x.rate/100*x.months/12;return `<div class="panel" style="background:#fff8f9;box-shadow:none"><div class="sectionhead"><h3>🐷 ${esc(x.name)}</h3><span class="pill">${x.months} tháng</span></div><div class="bigamount">${money(x.principal)}</div><p class="sub">Lãi suất ${x.rate}%/năm · Ngày gửi ${x.date} · Đáo hạn ${iso(end)}</p><p class="sub">Lãi dự kiến cuối kỳ: <b>${money(interest)}</b><br>Tổng nhận dự kiến: <b>${money(x.principal+interest)}</b></p><button class="btn soft" onclick="removeItem('savings',${i})">Xóa sổ</button></div>`}).join(''):'<div class="empty">Chưa có sổ tiết kiệm. Thêm sổ đầu tiên nhé!</div>'}
+function renderGoals(){$('homeGoals').textContent=data.goals.filter(x=>x.done).length;$('goalList').innerHTML=data.goals.length?data.goals.map((x,i)=>`<div class="taskrow"><input type="checkbox" ${x.done?'checked':''} onchange="toggleGoal(${i})"><div style="flex:1"><b>${esc(x.name)}</b><div class="sub">Hạn: ${x.due||'Chưa đặt hạn'} · ${x.done?'Đã hoàn thành':'Đang thực hiện'}</div></div><button class="btn soft" onclick="removeItem('goals',${i})">Xóa</button></div>`).join(''):'<div class="empty">Chưa có mục tiêu. Viết điều Tiền muốn làm nhé!</div>'}
+function renderWords(){$('homeWords').textContent=data.words.length;$('wordCount').textContent=data.words.length+' từ';$('wordList').innerHTML=data.words.length?data.words.map((x,i)=>`<div class="taskrow"><div style="flex:1"><b>${esc(x.word)}</b> <span class="pill">${esc(x.lang)}</span><div class="sub">${esc(x.meaning)} ${x.example?'· '+esc(x.example):''}</div></div><button class="btn soft" onclick="toast('Ôn tập: '+${JSON.stringify(x.word)})">Ôn</button><button class="btn soft" onclick="removeItem('words',${i})">Xóa</button></div>`).join(''):'<div class="empty">Chưa lưu từ vựng nào.</div>'}
+function renderCourses(){$('courseList').innerHTML=data.courses.length?data.courses.map((x,i)=>`<div class="taskrow"><div style="flex:1"><b>${esc(x.name)}</b><div style="height:7px;background:#f9e7eb;border-radius:8px;margin-top:7px"><div style="height:7px;width:${x.progress}%;background:#e99caf;border-radius:8px"></div></div><div class="sub">${x.progress}% hoàn thành</div></div><button class="btn soft" onclick="removeItem('courses',${i})">Xóa</button></div>`).join(''):'<div class="empty">Chưa có khóa học.</div>'}
+function renderJournals(){$('journalList').innerHTML=data.journals.length?data.journals.slice().reverse().map((x,i)=>`<div class="panel" style="box-shadow:none;background:#fff8f9"><div class="sectionhead"><b>${esc(x.title||'Một ngày của Tiền')}</b><span class="pill">${x.date}</span></div><div class="sub">${esc(x.mood)}</div><p style="font-size:13px;line-height:1.6;white-space:pre-wrap">${esc(x.body)}</p><button class="btn soft" onclick="removeItem('journals',${data.journals.length-1-i})">Xóa</button></div>`).join(''):'<div class="empty">Nhật ký của Tiền sẽ nằm ở đây.</div>'}
+function renderEvents(){$('eventList').innerHTML=data.events.length?data.events.slice().sort((a,b)=>a.date.localeCompare(b.date)).map((x,i)=>`<div class="taskrow"><div style="flex:1"><b>${esc(x.title)}</b><div class="sub">${x.date} ${x.time||''} · ${esc(x.note||'')}</div></div><button class="btn soft" onclick="removeItem('events',${i})">Xóa</button></div>`).join(''):'<div class="empty">Chưa có sự kiện. Thêm một điều đáng nhớ nhé!</div>'}
+function renderReminders(){$('reminderList').innerHTML=data.reminders.length?data.reminders.map((x,i)=>`<div class="taskrow"><div style="flex:1"><b>${esc(x.text)}</b><div class="sub">${x.date} · ${x.time||'Chưa đặt giờ'}</div></div><button class="btn soft" onclick="removeItem('reminders',${i})">Xóa</button></div>`).join(''):'<div class="empty">Chưa có lịch trình.</div>'}
+function renderCycle(){if(!data.cycle){$('cycleResult').innerHTML='<div class="empty">Nhập ngày bắt đầu kỳ kinh để xem dự đoán.</div>';return}let c=data.cycle,start=new Date(c.start+'T12:00:00'),ov=new Date(start);ov.setDate(ov.getDate()+c.length-14);let next=new Date(start);next.setDate(next.getDate()+c.length);let from=new Date(ov);from.setDate(from.getDate()-5);let to=ov;let fmt=d=>new Intl.DateTimeFormat('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'}).format(d);$('cycleResult').innerHTML=`<div class="cards"><div class="stat"><small>Kỳ kinh tiếp theo (ước tính)</small><b>${fmt(next)}</b></div><div class="stat"><small>Ngày rụng trứng (ước tính)</small><b>${fmt(ov)}</b></div><div class="stat"><small>Cửa sổ thụ thai</small><b>${fmt(from)} – ${fmt(to)}</b></div><div class="stat"><small>Độ dài chu kỳ</small><b>${c.length} ngày</b></div></div><p class="sub">Mức có khả năng thụ thai thường cao hơn trong cửa sổ ${fmt(from)} – ${fmt(to)}, đặc biệt gần ngày rụng trứng. Các ngày ngoài cửa sổ chỉ được xem là ước tính thấp hơn, không có ngày nào được bảo đảm an toàn để tránh thai.</p>`}
+function renderCalendar(){let y=calDate.getFullYear(),m=calDate.getMonth();$('monthLabel').textContent=new Intl.DateTimeFormat('vi-VN',{month:'long',year:'numeric'}).format(calDate);let first=new Date(y,m,1),offset=(first.getDay()+6)%7,days=new Date(y,m+1,0).getDate(),today=iso(new Date());let html=['T2','T3','T4','T5','T6','T7','CN'].map(x=>`<div class="day head">${x}</div>`).join('');for(let i=0;i<offset;i++)html+='<div class="day"></div>';for(let d=1;d<=days;d++){let key=iso(new Date(y,m,d)),mark=data.events.some(e=>e.date===key);html+=`<div class="day ${key===today?'today':''} ${mark?'mark':''}">${d}${mark?'<div style="color:#d77890">•</div>':''}</div>`}$('calendarGrid').innerHTML=html}
+function renderWater(){let key=iso(new Date()),n=data.water[key]||0;$('waterCount').textContent=n+' / 8 ly'}
+function renderAll(){renderPhoto();renderFinance();renderSavings();renderGoals();renderWords();renderCourses();renderJournals();renderEvents();renderReminders();renderCycle();renderCalendar();renderWater()}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+window.removeItem=(k,i)=>{if(confirm('Xóa mục này nhé?')){data[k].splice(i,1);save();toast('Đã xóa')}};window.toggleGoal=i=>{data.goals[i].done=!data.goals[i].done;save()};
+$('saveTx').onclick=()=>{let amount=Number($('txAmount').value);if(!amount||amount<0)return toast('Nhập số tiền hợp lệ nhé');data.transactions.push({type:$('txType').value,category:$('txCategory').value,amount,date:$('txDate').value||iso(new Date()),note:$('txNote').value});$('txAmount').value='';$('txNote').value='';save();toast('Đã lưu giao dịch 💗')};
+$('saveSaving').onclick=()=>{let principal=Number($('svPrincipal').value),rate=Number($('svRate').value),months=Number($('svMonths').value);if(!principal||!months||rate<0||!$('svDate').value)return toast('Kiểm tra lại thông tin sổ nhé');data.savings.push({name:$('svName').value||'Sổ tiết kiệm',principal,rate,months,date:$('svDate').value,method:$('svMethod').value});save();toast('Đã lưu sổ tiết kiệm 🐷')};
+$('saveGoal').onclick=()=>{if(!$('goalName').value.trim())return toast('Nhập tên mục tiêu nhé');data.goals.push({name:$('goalName').value,due:$('goalDue').value,done:false});$('goalName').value='';save();toast('Thêm mục tiêu thành công ⭐')};
+$('saveWord').onclick=()=>{if(!$('wordText').value.trim()||!$('wordMeaning').value.trim())return toast('Nhập từ và nghĩa nhé');data.words.push({word:$('wordText').value,meaning:$('wordMeaning').value,lang:$('wordLang').value,example:$('wordExample').value});$('wordText').value='';$('wordMeaning').value='';$('wordExample').value='';save();toast('Đã cất một từ mới 📚')};
+$('saveCourse').onclick=()=>{if(!$('courseName').value.trim())return toast('Nhập tên khóa học nhé');data.courses.push({name:$('courseName').value,progress:Math.max(0,Math.min(100,Number($('courseProgress').value)||0))});$('courseName').value='';save();toast('Đã thêm khóa học')};
+$('saveJournal').onclick=()=>{if(!$('journalBody').value.trim())return toast('Viết vài dòng trước nhé');data.journals.push({title:$('journalTitle').value,body:$('journalBody').value,mood:$('journalMood').value,date:iso(new Date())});$('journalTitle').value='';$('journalBody').value='';save();toast('Đã lưu trang nhật ký 💌')};
+$('saveEvent')?.addEventListener('click',()=>{});
+$('addEventBtn').onclick=()=>{let title=prompt('Tên sự kiện / ghi chú lịch?');if(!title)return;let date=prompt('Ngày (YYYY-MM-DD)',iso(new Date()));if(!date)return;data.events.push({title,date,note:''});save();toast('Đã thêm sự kiện 📅')};
+$('prevMonth').onclick=()=>{calDate.setMonth(calDate.getMonth()-1);renderCalendar()};$('nextMonth').onclick=()=>{calDate.setMonth(calDate.getMonth()+1);renderCalendar()};
+$('saveCycle').onclick=()=>{let start=$('periodStart').value,length=Number($('cycleLength').value),period=Number($('periodLength').value);if(!start||length<20||length>45)return toast('Kiểm tra ngày và độ dài chu kỳ nhé');data.cycle={start,length,period};save();toast('Đã lưu thông tin chu kỳ 🌷')};
+$('saveReminder').onclick=()=>{if(!$('reminderText').value.trim()||!$('reminderDate').value)return toast('Nhập nội dung và ngày nhé');data.reminders.push({text:$('reminderText').value,date:$('reminderDate').value,time:$('reminderTime').value});$('reminderText').value='';save();toast('Đã lưu lịch trình ⏰')};
+$('addWater').onclick=()=>{let k=iso(new Date());data.water[k]=(data.water[k]||0)+1;save();toast('Giỏi quá! Nhớ uống từng ngụm vừa đủ nhé 💧')};
+$('resetWater').onclick=()=>{data.water[iso(new Date())]=0;save()};
+$('waterTop').onclick=()=>{go('schedule');$('addWater').click()};
+function exportBackup(){let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='bich-tien-backup.json';a.click();URL.revokeObjectURL(url);toast('Đã tạo bản sao lưu')};
+$('exportData').onclick=exportBackup;$('exportTop').onclick=exportBackup;
+$('importData').onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{data={...blank,...JSON.parse(r.result)};save();toast('Đã khôi phục dữ liệu')}catch{toast('Tệp sao lưu không hợp lệ')}};r.readAsText(f)};
+$('savePin').onclick=()=>{let p=$('pinInput').value;if(p&&!/^\d{4,8}$/.test(p))return toast('Mã PIN cần 4–8 chữ số');data.pin=p||null;save();toast('Đã cập nhật cài đặt PIN')};
+$('clearData').onclick=()=>{if(confirm('Bạn chắc chắn muốn xóa toàn bộ dữ liệu BÍCH TIỀN trên trình duyệt này? Hãy sao lưu trước nếu cần.')){localStorage.removeItem(KEY);data={...blank};save();toast('Đã xóa dữ liệu cục bộ')}};
+renderAll();
+</script>
+</body></html>

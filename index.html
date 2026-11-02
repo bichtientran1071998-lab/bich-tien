@@ -94,6 +94,51 @@ h1{color:#59464d;letter-spacing:-.025em;font-weight:750}h2{color:#625158;font-we
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 
+
+/* BICH TIEN — Emerald green / sage / cream / champagne refresh */
+:root{
+ --pink:#8FAF9B;--pink2:#DCE9DF;--rose:#174F46;--pale:#EAF1EB;--cream:#F6F1E7;
+ --ink:#35483F;--muted:#71847A;--line:#E2E9E1;--white:#FFFEFA;
+ --gold:#C5A66A;--gold-soft:#F3EBDD;--shadow:0 10px 28px rgba(35,73,61,.085);
+}
+html{background:#F6F1E7;scroll-behavior:smooth}
+body{background:linear-gradient(145deg,#F6F1E7 0%,#EEF2EB 55%,#F8F5ED 100%);color:var(--ink)}
+.sidebar{background:rgba(255,254,250,.96);border-right:1px solid #E2E9E1;box-shadow:5px 0 24px rgba(35,73,61,.035)}
+.brandmark{background:linear-gradient(145deg,#DCE9DF,#8FAF9B);color:#174F46;box-shadow:0 5px 15px rgba(35,73,61,.13)}
+.brand strong{color:#174F46}.brand small{color:#71847A}
+.navlabel{color:#82978A}.navbtn{color:#40564B}.navbtn.active,.navbtn:hover{background:#DCE9DF;color:#174F46}.navbtn.active{box-shadow:inset 3px 0 0 var(--gold)}
+.sidefoot{background:#EAF1EB;color:#50665A;border:1px solid #DCE7DC}
+.crumb{color:#71847A}
+.btn{background:linear-gradient(135deg,#23685B,#174F46);color:#FFFEFA;box-shadow:0 5px 13px rgba(23,79,70,.18)}
+.btn:hover{box-shadow:0 7px 16px rgba(23,79,70,.23)}.btn.soft{background:#DCE9DF;color:#174F46;box-shadow:none}.btn.ghost{background:#FFFEFA;color:#40564B;border:1px solid #E2E9E1;box-shadow:none}
+h1{color:#174F46}h2{color:#28594D}h3{color:#40564B}.sub{color:#71847A}
+.eyebrow{color:#A8874C}
+.hero{grid-template-columns:1.05fr .95fr;gap:18px}
+.hero-main{background:linear-gradient(125deg,#174F46 0%,#23685B 58%,#8FAF9B 100%);border:1px solid #174F46;box-shadow:0 12px 30px rgba(23,79,70,.15);border-radius:25px}
+.hero-main h1{color:#FFFEFA}.hero-main .sub{color:#E5EEE7}.eyebrow{color:#F0DDAF}.hero-main:after{color:rgba(255,255,255,.13)}
+.datepill{background:rgba(255,254,250,.16);color:#FFFEFA;border:1px solid rgba(255,255,255,.24)}
+.hero-photo,.message,.stat,.panel{background:rgba(255,254,250,.97);border:1px solid #E2E9E1;box-shadow:var(--shadow)}
+.hero-photo{min-height:290px;padding:13px}.photoarea{min-height:220px;background:linear-gradient(145deg,#EAF1EB,#DCE9DF)}
+.photoarea img{object-fit:contain;background:#EAF1EB}.photo-tools{color:#71847A}.photo-tools label{color:#174F46!important}
+.message{border-radius:18px}.chibi{background:#EAF1EB}.message strong{color:#28594D}.message p{color:#71847A}
+.stat{border-radius:17px}.stat small{color:#71847A}.stat b{color:#174F46}
+.quick{background:#F3F6F0;border:1px solid #E2E9E1;color:#40564B}.quick:hover{border-color:#AFC6B5}
+.taskrow{border-bottom-color:#E8EEE7;color:#40564B}.taskrow input{accent-color:#23685B}
+.field label{color:#60796B}.field input,.field select,.field textarea{background:#FFFEFA;border-color:#E2E9E1;color:#35483F}.field input:focus,.field textarea:focus,.field select:focus{border-color:#8FAF9B;box-shadow:0 0 0 3px rgba(143,175,155,.18)}
+.tablewrap{border-color:#E2E9E1}th{color:#60796B;background:#F3F6F0}td{color:#40564B;border-bottom-color:#E8EEE7}
+.empty{background:#F3F6F0;color:#71847A;border-color:#DCE7DC}.pill{background:#F3EBDD;color:#8A6D3C;border:1px solid #E9DFC9}
+.bigamount{color:#A8874C}
+.calendar .day{background:#F3F6F0;border-color:#E2E9E1;color:#40564B}.calendar .day.head{color:#71847A}.calendar .day.today{background:#DCE9DF;border-color:#8FAF9B}.calendar .day.selected{outline-color:#23685B;background:#EAF1EB}
+.day-events{border-color:#E2E9E1}.eventform{background:#F3F6F0}
+.bottomnav{background:rgba(255,254,250,.98);border-top:1px solid #E2E9E1;box-shadow:0 -7px 22px rgba(35,73,61,.07)}.bottomnav button{color:#71847A}.bottomnav button.active{color:#174F46}
+.toast{background:#174F46;border:1px solid rgba(255,255,255,.12)}
+:focus-visible{outline:2px solid #8FAF9B;outline-offset:2px}
+@media(max-width:650px){
+ .hero{grid-template-columns:1fr;gap:13px}.hero-main{background:linear-gradient(125deg,#174F46 0%,#23685B 65%,#8FAF9B 100%)}
+ .hero-photo{min-height:0;padding:12px}.photoarea{min-height:280px;height: min(78vw,360px)}.photoarea img{object-fit:contain}
+ .bottomnav button.active{color:#174F46}
+}
+
 </style>
 </head>
 <body>

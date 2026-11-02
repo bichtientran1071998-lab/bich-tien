@@ -298,7 +298,20 @@ async function writeAutoBackup(){try{const db=await openBackupDB();await new Pro
 async function readAutoBackup(){const db=await openBackupDB();try{return await new Promise((resolve,reject)=>{const tx=db.transaction('snapshots','readonly'),req=tx.objectStore('snapshots').get('latest');req.onsuccess=()=>resolve(req.result||null);req.onerror=()=>reject(req.error)})}finally{db.close()}}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(data));renderAll();writeAutoBackup();return true}catch(e){renderAll();toast('Bộ nhớ Safari gần đầy. Hãy thử ảnh nhỏ hơn hoặc xuất bản sao lưu nhé.');return false}}
 function toast(s){let t=$('toast');t.textContent=s;t.style.display='block';setTimeout(()=>t.style.display='none',2200)}
-function go(page){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id==='page-'+page));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));$('crumb').textContent=({home:'Trang chủ',calendar:'Lịch của tôi',journal:'Nhật ký & ghi chú',finance:'Tài chính',stats:'Thống kê & báo cáo',savings:'Sổ tiết kiệm',cycle:'Chu kỳ',learning:'Từ vựng & khóa học',goals:'Mục tiêu',schedule:'Lịch trình',settings:'Cài đặt'})[page]||page;window.scrollTo(0,0)}
+const TIEN_TIEN_PAGE_MESSAGES={
+ home:'“Chào Tiền quay về góc nhỏ của mình rồi! Hôm nay mình chọn một điều quan trọng để chăm sóc bản thân nhé 💗”',
+ calendar:'“Mình xem lịch nhẹ nhàng thôi nha. Sắp xếp trước một chút để ngày mai đỡ cuống nhé!”',
+ journal:'“Ở đây Tiền có thể viết thật lòng. Không cần câu chữ hay, chỉ cần là cảm xúc của chính mình.”',
+ finance:'“Tiền bạc cần được ghi lại để mình hiểu và chủ động hơn. Mỗi khoản nhỏ đều đáng được quan tâm.”',
+ stats:'“Cùng nhìn lại bức tranh thu chi nhé! Số liệu giúp mình điều chỉnh, không phải để tự trách mình.”',
+ savings:'“Mỗi lần để dành là một bước gần hơn với điều Tiền mong muốn. Chậm mà chắc nha!”',
+ cycle:'“Lắng nghe cơ thể và nghỉ ngơi khi cần nhé. Mỗi chu kỳ đều xứng đáng được dịu dàng chăm sóc.”',
+ learning:'“Mở sách ra nào! Học một từ mới hôm nay cũng là một món quà Tiền dành cho tương lai.”',
+ goals:'“Mục tiêu lớn được tạo nên từ những bước nhỏ. Chọn một việc vừa sức rồi bắt đầu nha!”',
+ schedule:'“Đừng quên cân bằng giữa làm việc, uống nước và nghỉ ngơi. Tiên Tiên cổ vũ Tiền nè!”',
+ settings:'“Đây là góc chăm chút cho BÍCH TIỀN. Nhớ giữ bản sao lưu an toàn trước khi thay đổi dữ liệu nha!”'
+};
+function go(page){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id==='page-'+page));document.querySelectorAll('[data-page]').forEach(x=>x.classList.toggle('active',x.dataset.page===page));$('crumb').textContent=({home:'Trang chủ',calendar:'Lịch của tôi',journal:'Nhật ký & ghi chú',finance:'Tài chính',stats:'Thống kê & báo cáo',savings:'Sổ tiết kiệm',cycle:'Chu kỳ',learning:'Từ vựng & khóa học',goals:'Mục tiêu',schedule:'Lịch trình',settings:'Cài đặt'})[page]||page;const companion=$('dailyMessage');if(companion&&TIEN_TIEN_PAGE_MESSAGES[page])companion.textContent=TIEN_TIEN_PAGE_MESSAGES[page];window.scrollTo(0,0)}
 document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
 document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.go)));
 // Fallback navigation handler: delegated capture keeps navigation responsive on mobile Safari.
